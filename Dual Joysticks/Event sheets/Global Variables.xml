@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Global Variables</name>
+    <events>
+        <comment>Control variables for touch threshold. These control how quickly touch input is recgonized. They can and should be altered to adjust how smooth the controls feel.</comment>
+        <variable constant="0" name="XThreshold" sid="1185904926177436" static="0" type="number">50</variable>
+        <variable constant="0" name="YThreshold" sid="6110318944948428" static="0" type="number">50</variable>
+        <comment>Intialize variables</comment>
+        <variable constant="0" name="rightTouchID" sid="5337361475233823" static="0" type="number">0</variable>
+        <variable constant="0" name="leftTouchID" sid="2698080491417368" static="0" type="number">0</variable>
+    </events>
+</c2eventsheet>
