@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>generationLogic</name>
+    <events>
+        <event-block sid="5858361269917726">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="8774290811684989" type="System">
+                    <param id="0" name="Interval (seconds)">0.5</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="4660515810184837" type="System">
+                    <param id="0" name="Object to create">enemy</param>
+                    <param id="1" name="Layer">&quot;gameField&quot;</param>
+                    <param id="2" name="X">ViewportRight(&quot;gameField&quot;)</param>
+                    <param id="3" name="Y">random(0,480)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2726331566789256">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="950583220171864" type="System">
+                    <param id="0" name="Interval (seconds)">2.0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="4925053718620313" type="System">
+                    <param id="0" name="Object to create">comet1</param>
+                    <param id="1" name="Layer">&quot;gameField&quot;</param>
+                    <param id="2" name="X">random(10,800)</param>
+                    <param id="3" name="Y">ViewportTop(&quot;gameField&quot;)</param>
+                </action>
+                <action id="-22" name="Set angle toward position" sid="3289618489220539" type="comet1">
+                    <param id="0" name="X">player.X</param>
+                    <param id="1" name="Y">player.Y</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

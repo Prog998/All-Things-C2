@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2uistate>
+    <!--This is a UI state file - its content describes the user interface settings when the project was last open.
+It is entirely optional and the project will load without it.  If you are placing the project under source control,
+you probably do not want to add any .uistate.xml files to the repository.-->
+    <configurations>
+        <active>
+            <configuration name="HTML5" />
+        </active>
+        <display name="HTML5" />
+    </configurations>
+    <open-tabs>
+        <layout order="1">gameField</layout>
+        <event-sheet order="0">generationLogic</event-sheet>
+        <event-sheet order="2">gameField</event-sheet>
+        <event-sheet active="1" order="3">playerMovement</event-sheet>
+    </open-tabs>
+    <properties>
+        <property expanded="1" name="About" />
+        <property expanded="1" name="Project settings" />
+        <property expanded="0" name="Window Size" />
+        <property expanded="1" name="Configuration Settings" />
+    </properties>
+    <families-expanded root="1" />
+    <folders-expanded>
+        <folder expanded="1" path="object-folder/" />
+        <folder expanded="0" path="object-folder/includes/" />
+        <folder expanded="0" path="object-folder/enemies/" />
+        <folder expanded="0" path="object-folder/comets/" />
+        <folder expanded="0" path="object-folder/player/" />
+        <folder expanded="0" path="object-folder/effects/" />
+        <folder expanded="0" path="object-folder/background/" />
+        <folder expanded="0" path="object-folder/start screen/" />
+        <folder expanded="0" path="object-folder/Hud/" />
+        <folder expanded="0" path="object-folder/loaderMenu/" />
+        <folder expanded="1" path="layout-folder/" />
+        <folder expanded="1" path="event-folder/" />
+        <folder expanded="1" path="file-folder/" />
+        <folder expanded="1" path="sound-folder/" />
+        <folder expanded="1" path="music-folder/" />
+        <folder expanded="0" path="file-folder/Icons/" />
+        <folder expanded="1" path="animation-folder/enemy/" />
+        <folder expanded="1" path="animation-folder/comet1/" />
+        <folder expanded="1" path="animation-folder/comet2/" />
+        <folder expanded="1" path="animation-folder/comet3/" />
+        <folder expanded="1" path="animation-folder/comet4/" />
+        <folder expanded="1" path="animation-folder/comet5/" />
+        <folder expanded="1" path="animation-folder/player/" />
+        <folder expanded="1" path="animation-folder/laser/" />
+        <folder expanded="1" path="animation-folder/explosion/" />
+        <folder expanded="1" path="animation-folder/star/" />
+        <folder expanded="1" path="animation-folder/title/" />
+        <folder expanded="1" path="animation-folder/companyLogo/" />
+        <folder expanded="1" path="animation-folder/loadingIcon/" />
+    </folders-expanded>
+</c2uistate>

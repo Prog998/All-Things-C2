@@ -1,0 +1,524 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>gameField</name>
+    <events>
+        <include>generationLogic</include>
+        <include>playerMovement</include>
+        <include>collisions</include>
+        <variable constant="0" name="highScore" sid="1434935352738835" static="0" type="number">0</variable>
+        <variable constant="0" name="Lives" sid="4925490990913571" static="0" type="number">3</variable>
+        <variable constant="0" name="Score" sid="7796288475556211" static="0" type="number">0</variable>
+        <event-group description="" sid="684714471069875" title="init">
+            <sub-events>
+                <event-block sid="8525269048020382">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="1467087523883039" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="2580464020904915" type="System">
+                            <param id="0" name="Object to create">player</param>
+                            <param id="1" name="Layer">&quot;gameField&quot;</param>
+                            <param id="2" name="X">(ViewportLeft(&quot;gameField&quot;)+ViewportRight(&quot;gameField&quot;))/2</param>
+                            <param id="3" name="Y">(ViewportBottom(&quot;gameField&quot;)+ViewportTop(&quot;gameField&quot;))/2</param>
+                        </action>
+                        <action behavior="Flash" id="1" name="Stop flashing" sid="9739613105791676" type="player" />
+                        <action id="-9" name="Set value" sid="2055702670342687" type="System">
+                            <param id="0" name="Variable">Lives</param>
+                            <param id="1" name="Value">3</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="435595630197676" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="0" name="Set text" sid="649715381978971" type="scoreLabel">
+                            <param id="0" name="Text">Score</param>
+                        </action>
+                        <action id="0" name="Set text" sid="8237741957771713" type="livesLabel">
+                            <param id="0" name="Text">Lives</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="7803638290862203" type="scoreLabel">
+                            <param id="0" name="X">ViewportLeft(&quot;hud&quot;) + 10</param>
+                            <param id="1" name="Y">ViewportTop(&quot;hud&quot;) + 10</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="9429349405096635" type="livesLabel">
+                            <param id="0" name="X">ViewportLeft(&quot;hud&quot;) + 10</param>
+                            <param id="1" name="Y">ViewportBottom(&quot;hud&quot;) - 42</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="4871344732468196">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="8254264851082212" type="System">
+                                    <param id="0" name="Object">enemy</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="5790245757536595" type="enemy" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="5898569559320363">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="7677572688212488" type="System">
+                                    <param id="0" name="Object">comet1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="549447420681619" type="comet1" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="7237001886786864">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="2053479094234365" type="System">
+                                    <param id="0" name="Object">comet2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="7195399645345053" type="comet2" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="7113193994527158">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="4078824785113751" type="System">
+                                    <param id="0" name="Object">comet3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="2988339846083231" type="comet3" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="5718019054954589">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="6781639548307689" type="System">
+                                    <param id="0" name="Object">comet4</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="808786608654165" type="comet4" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="3512429390841002">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="9315932122257614" type="System">
+                                    <param id="0" name="Object">comet5</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="4076870244965081" type="comet5" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="4952056064825644" title="comet generation">
+            <sub-events>
+                <event-block sid="9198325377448097">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="7751616820917332" type="comet1">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="5833997171144039" type="comet1">
+                            <param id="0" name="Object">comet2</param>
+                            <param id="1" name="Layer">&quot;gameField&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="9473262903581868" type="comet2">
+                            <param id="0" name="Angle">int(random(0,360))</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="6037403478573717" type="comet1">
+                            <param id="0" name="Object">comet2</param>
+                            <param id="1" name="Layer">&quot;gameField&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="860569649274258" type="comet2">
+                            <param id="0" name="Angle">int(random(0,360))</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="9701704962457835" type="comet1" />
+                        <action id="-10" name="Add to" sid="7309003997969446" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Value">10</param>
+                        </action>
+                        <action id="0" name="Set text" sid="6072560693828518" type="scoreLabel">
+                            <param id="0" name="Text">Score</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8531447197282423">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="3310406607397022" type="comet2">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="7014066240708282" type="comet2">
+                            <param id="0" name="Object">comet3</param>
+                            <param id="1" name="Layer">&quot;gameField&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="8702851441309058" type="comet3">
+                            <param id="0" name="Angle">int(random(0,360))</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="1893849481353175" type="comet2">
+                            <param id="0" name="Object">comet3</param>
+                            <param id="1" name="Layer">&quot;gameField&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="3271499418540954" type="comet3">
+                            <param id="0" name="Angle">int(random(0,360))</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="8714718213129123" type="comet2" />
+                        <action id="-10" name="Add to" sid="745482196883296" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Value">20</param>
+                        </action>
+                        <action id="0" name="Set text" sid="8230399621943492" type="scoreLabel">
+                            <param id="0" name="Text">Score</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2051594762624956">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="7839298083756193" type="comet3">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="3999793946251261" type="comet3">
+                            <param id="0" name="Object">comet4</param>
+                            <param id="1" name="Layer">&quot;gameField&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="3994958686232992" type="comet4">
+                            <param id="0" name="Angle">int(random(0,360))</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="8463121211262787" type="comet3">
+                            <param id="0" name="Object">comet4</param>
+                            <param id="1" name="Layer">&quot;gameField&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="9676748185990085" type="comet4">
+                            <param id="0" name="Angle">int(random(0,360))</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="5472397512498512" type="comet3">
+                            <param id="0" name="Object">comet4</param>
+                            <param id="1" name="Layer">&quot;gameField&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="7921302758259802" type="comet4">
+                            <param id="0" name="Angle">int(random(0,360))</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="6037301128465445" type="comet3">
+                            <param id="0" name="Object">comet4</param>
+                            <param id="1" name="Layer">&quot;gameField&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="48780936973214" type="comet4">
+                            <param id="0" name="Angle">int(random(0,360))</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="5988469384687634" type="comet3" />
+                        <action id="-10" name="Add to" sid="180601186293226" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Value">30</param>
+                        </action>
+                        <action id="0" name="Set text" sid="5592949151548439" type="scoreLabel">
+                            <param id="0" name="Text">Score</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4833522569991688">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="2256760285451154" type="comet4">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="9122387057185761" type="comet4">
+                            <param id="0" name="Object">comet5</param>
+                            <param id="1" name="Layer">&quot;gameField&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="4085650894381791" type="comet5">
+                            <param id="0" name="Angle">int(random(0,360))</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="6211762836585749" type="comet4">
+                            <param id="0" name="Object">comet5</param>
+                            <param id="1" name="Layer">&quot;gameField&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="2659134964326818" type="comet5">
+                            <param id="0" name="Angle">int(random(0,360))</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="6639892272434344" type="comet4">
+                            <param id="0" name="Object">comet5</param>
+                            <param id="1" name="Layer">&quot;gameField&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="6829108825905238" type="comet5">
+                            <param id="0" name="Angle">int(random(0,360))</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="6278906372079211" type="comet4">
+                            <param id="0" name="Object">comet5</param>
+                            <param id="1" name="Layer">&quot;gameField&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="4377362268272956" type="comet5">
+                            <param id="0" name="Angle">int(random(0,360))</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="9917146235325541" type="comet4">
+                            <param id="0" name="Object">comet5</param>
+                            <param id="1" name="Layer">&quot;gameField&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="1204283879777007" type="comet5">
+                            <param id="0" name="Angle">int(random(0,360))</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="8007843714501456" type="comet4">
+                            <param id="0" name="Object">comet5</param>
+                            <param id="1" name="Layer">&quot;gameField&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="5550973288440387" type="comet5">
+                            <param id="0" name="Angle">int(random(0,360))</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="3271172429129877" type="comet4">
+                            <param id="0" name="Object">comet5</param>
+                            <param id="1" name="Layer">&quot;gameField&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="2679730973982003" type="comet5">
+                            <param id="0" name="Angle">int(random(0,360))</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="3519202714956052" type="comet4">
+                            <param id="0" name="Object">comet5</param>
+                            <param id="1" name="Layer">&quot;gameField&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="8737862834098175" type="comet5">
+                            <param id="0" name="Angle">int(random(0,360))</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="1541940851569217" type="comet4" />
+                        <action id="-10" name="Add to" sid="8762446954561641" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Value">40</param>
+                        </action>
+                        <action id="0" name="Set text" sid="8264251280877824" type="scoreLabel">
+                            <param id="0" name="Text">Score</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3592971675411004">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="8451063693848462" type="comet5">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="9949142095151659" type="comet5" />
+                        <action id="-10" name="Add to" sid="1195515697281977" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Value">50</param>
+                        </action>
+                        <action id="0" name="Set text" sid="9783789769045006" type="scoreLabel">
+                            <param id="0" name="Text">Score</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="8988471797174287" title="health check">
+            <sub-events>
+                <event-block sid="2260443878303423">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="5881966321875439" type="player">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="5017915908546463" type="player">
+                            <param id="0" name="Object">explosion</param>
+                            <param id="1" name="Layer">&quot;gameField&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="5885930155158456" type="player" />
+                    </actions>
+                    <sub-events>
+                        <comment>respawn</comment>
+                        <event-block sid="7417734736578588">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="9948513777357658" type="System">
+                                    <param id="0" name="Variable">Lives</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Subtract from" sid="149922674557814" type="System">
+                                    <param id="0" name="Variable">Lives</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="7842328042783619" type="System">
+                                    <param id="0" name="Seconds">1</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="6795385421853692" type="System">
+                                    <param id="0" name="Object to create">player</param>
+                                    <param id="1" name="Layer">&quot;gameField&quot;</param>
+                                    <param id="2" name="X">(ViewportLeft(&quot;gameField&quot;)+ViewportRight(&quot;gameField&quot;))/2</param>
+                                    <param id="3" name="Y">(ViewportBottom(&quot;gameField&quot;)+ViewportTop(&quot;gameField&quot;))/2</param>
+                                </action>
+                                <action behavior="Flash" id="0" name="Flash" sid="2103534534617016" type="player">
+                                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                                    <param id="2" name="Duration">1.5</param>
+                                </action>
+                                <action id="0" name="Set text" sid="4987466238667903" type="livesLabel">
+                                    <param id="0" name="Text">Lives</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>no lives left, go back to start screen</comment>
+                <event-block sid="890942427130681">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="57464150530332" type="enemy">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="8488777432061024" type="enemy">
+                            <param id="0" name="Object">explosion</param>
+                            <param id="1" name="Layer">&quot;gameField&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="6391954721393783" type="enemy" />
+                        <action id="-10" name="Add to" sid="5389237586968377" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Value">10</param>
+                        </action>
+                        <action id="0" name="Set text" sid="2216041005494175" type="scoreLabel">
+                            <param id="0" name="Text">Score</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="167672148169244">
+            <conditions>
+                <condition id="3" name="Compare frame" sid="4963300198399246" type="explosion">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Number">6</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="5617087917858876" type="explosion" />
+            </actions>
+        </event-block>
+        <event-block sid="4153402314035489">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="3009311974172983" type="System">
+                    <param id="0" name="Interval (seconds)">0.1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="1508888869465974" type="System">
+                    <param id="0" name="Object to create">star</param>
+                    <param id="1" name="Layer">&quot;hud&quot;</param>
+                    <param id="2" name="X">ViewportRight(&quot;gameField&quot;)</param>
+                    <param id="3" name="Y">int(random(0,480))</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1779590817702837">
+            <conditions>
+                <condition id="-19" name="On destroyed" sid="6819266763614865" type="player" />
+                <condition id="-14" name="Compare variable" sid="6393423987752416" type="System">
+                    <param id="0" name="Variable">Lives</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="7523240596392012" type="livesLabel">
+                    <param id="0" name="Text">Lives</param>
+                </action>
+                <action id="-9" name="Set value" sid="8719200736532735" type="System">
+                    <param id="0" name="Variable">highScore</param>
+                    <param id="1" name="Value">Score &gt; highScore ? Score : highScore</param>
+                </action>
+                <action id="-16" name="Wait" sid="7766672021439982" type="System">
+                    <param id="0" name="Seconds">3</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="8642582764296036" type="System">
+                    <param id="0" name="Layout">startMenu</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1291629148707562">
+            <conditions>
+                <condition id="-9" name="Is visible" sid="7124355218830905" type="comet1" />
+            </conditions>
+            <actions>
+                <action id="-18" name="Rotate clockwise" sid="8239962215988643" type="comet1">
+                    <param id="0" name="Degrees">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7906559297257828">
+            <conditions>
+                <condition id="-9" name="Is visible" sid="4664943109716493" type="comet2" />
+            </conditions>
+            <actions>
+                <action id="-18" name="Rotate clockwise" sid="8685657460032866" type="comet2">
+                    <param id="0" name="Degrees">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5146110165911887">
+            <conditions>
+                <condition id="-9" name="Is visible" sid="6142473724512511" type="comet3" />
+            </conditions>
+            <actions>
+                <action id="-18" name="Rotate clockwise" sid="9002138575374037" type="comet3">
+                    <param id="0" name="Degrees">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6721152987064526">
+            <conditions>
+                <condition id="-9" name="Is visible" sid="6818117294642492" type="comet4" />
+            </conditions>
+            <actions>
+                <action id="-18" name="Rotate clockwise" sid="2943708373261872" type="comet4">
+                    <param id="0" name="Degrees">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5157943497424611">
+            <conditions>
+                <condition id="-9" name="Is visible" sid="9980884716233954" type="comet5" />
+            </conditions>
+            <actions>
+                <action id="-18" name="Rotate clockwise" sid="5446439257926077" type="comet5">
+                    <param id="0" name="Degrees">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

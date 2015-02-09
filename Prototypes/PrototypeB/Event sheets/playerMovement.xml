@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>playerMovement</name>
+    <events>
+        <event-group description="" sid="4006234488439459" title="Fire and aim">
+            <sub-events>
+                <event-block sid="8127144791227308">
+                    <conditions>
+                        <condition id="4" name="Has gamepads" sid="9259255653132795" type="Gamepad" />
+                        <condition id="-9" name="Is visible" sid="9915735339037033" type="player" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="6073462693402251">
+                            <conditions>
+                                <condition id="3" name="Is button down" sid="458740755819796" type="Gamepad">
+                                    <param id="0" name="Gamepad">0</param>
+                                    <param id="1" name="Button">7</param>
+                                </condition>
+                                <condition id="-6" name="Every X seconds" sid="6677050229460949" type="System">
+                                    <param id="0" name="Interval (seconds)">0.07</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="6108702229716333" type="player">
+                                    <param id="0" name="Object">laser</param>
+                                    <param id="1" name="Layer">&quot;gameField&quot;</param>
+                                    <param id="2" name="Image point">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="7688633758982035">
+                                    <conditions>
+                                        <condition id="5" name="Compare axis" sid="874253102648443" type="Gamepad">
+                                            <param id="0" name="Gamepad">0</param>
+                                            <param id="1" name="Axis">2</param>
+                                            <param id="2" name="Comparison">4</param>
+                                            <param id="3" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="5788431381683934">
+                                            <conditions>
+                                                <condition id="5" name="Compare axis" sid="4526981358414776" type="Gamepad">
+                                                    <param id="0" name="Gamepad">0</param>
+                                                    <param id="1" name="Axis">3</param>
+                                                    <param id="2" name="Comparison">2</param>
+                                                    <param id="3" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-8" name="Set angle" sid="6602595255013183" type="laser">
+                                                    <param id="0" name="Angle">360+atan(Gamepad.Axis(0,3)/Gamepad.Axis(0,2))</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="7001966161655734">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="5678411397034801" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-8" name="Set angle" sid="1045710483152108" type="laser">
+                                                    <param id="0" name="Angle">atan(Gamepad.Axis(0,3)/Gamepad.Axis(0,2))</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="8933342489020729">
+                                    <conditions>
+                                        <condition id="5" name="Compare axis" sid="6557024698845069" type="Gamepad">
+                                            <param id="0" name="Gamepad">0</param>
+                                            <param id="1" name="Axis">2</param>
+                                            <param id="2" name="Comparison">2</param>
+                                            <param id="3" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="8162127785038187">
+                                            <conditions>
+                                                <condition id="5" name="Compare axis" sid="9762930992383593" type="Gamepad">
+                                                    <param id="0" name="Gamepad">0</param>
+                                                    <param id="1" name="Axis">3</param>
+                                                    <param id="2" name="Comparison">1</param>
+                                                    <param id="3" name="Value">-0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-8" name="Set angle" sid="4748943262371406" type="laser">
+                                                    <param id="0" name="Angle">180 +atan(Gamepad.Axis(0,3)/Gamepad.Axis(0,2))</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="742749402468587">
+                    <conditions>
+                        <condition id="4" inverted="1" name="Has gamepads" sid="3060049665604624" type="Gamepad" />
+                        <condition id="-9" name="Is visible" sid="4451774364589096" type="player" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="5201993900357889">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="7688203971083483" type="Keyboard">
+                                    <param id="0" name="Key">32 (Space)</param>
+                                </condition>
+                                <condition id="-6" name="Every X seconds" sid="9474892188322061" type="System">
+                                    <param id="0" name="Interval (seconds)">0.07</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="2535812483222711" type="player">
+                                    <param id="0" name="Object">laser</param>
+                                    <param id="1" name="Layer">&quot;gameField&quot;</param>
+                                    <param id="2" name="Image point">1</param>
+                                </action>
+                                <action id="-22" name="Set angle toward position" sid="2696189243649554" type="laser">
+                                    <param id="0" name="X">Mouse.X</param>
+                                    <param id="1" name="Y">Mouse.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="1709082425146236" title="register buttons">
+            <sub-events>
+                <event-block any="1" sid="7383442453580055">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="9232123711921116" type="Keyboard">
+                            <param id="0" name="Key">68 (D)</param>
+                        </condition>
+                        <condition id="5" name="Compare axis" sid="1205189223749081" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">0</param>
+                            <param id="2" name="Comparison">4</param>
+                            <param id="3" name="Value">10</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="2445660031939063" type="player">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="859806409393109">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="347094671495121" type="Keyboard">
+                            <param id="0" name="Key">65 (A)</param>
+                        </condition>
+                        <condition id="5" name="Compare axis" sid="4361968485042667" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">0</param>
+                            <param id="2" name="Comparison">2</param>
+                            <param id="3" name="Value">-10</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="1431239978620948" type="player">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="9029061701817626">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="4222973756669415" type="Keyboard">
+                            <param id="0" name="Key">83 (S)</param>
+                        </condition>
+                        <condition id="5" name="Compare axis" sid="8307998829534091" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">1</param>
+                            <param id="2" name="Comparison">4</param>
+                            <param id="3" name="Value">10</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="9116401442170674" type="Keyboard">
+                            <param id="0" name="Key">40 (Down arrow)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="6283210234027998" type="player">
+                            <param id="0" name="Control">3</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="4200937381074118" type="star">
+                            <param id="0" name="Angle">star.Angle + 0.5</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="8159225396772499">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="5562154527181469" type="Keyboard">
+                            <param id="0" name="Key">87 (W)</param>
+                        </condition>
+                        <condition id="5" name="Compare axis" sid="6024308301345524" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">1</param>
+                            <param id="2" name="Comparison">2</param>
+                            <param id="3" name="Value">-1</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="7260509770005996" type="Keyboard">
+                            <param id="0" name="Key">38 (Up arrow)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="9042216518910999" type="player">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="9672800104179441" type="star">
+                            <param id="0" name="Angle">star.Angle - 0.5</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

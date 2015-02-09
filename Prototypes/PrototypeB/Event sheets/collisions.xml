@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>collisions</name>
+    <events>
+        <event-group description="" sid="1800473012419567" title="laser collisions">
+            <sub-events>
+                <event-block sid="5540940077981945">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="778236433021007" type="laser">
+                            <param id="0" name="Object">enemy</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="8131461279974639" type="laser" />
+                        <action id="-12" name="Subtract from" sid="1133668745331908" type="enemy">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5725208126580366">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="2761921741325078" type="laser">
+                            <param id="0" name="Object">comet1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="6304766878490245" type="laser" />
+                        <action id="-12" name="Subtract from" sid="1058979821993885" type="comet1">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="201505969764319">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="3732188292713037" type="laser">
+                            <param id="0" name="Object">comet2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="2018624000859194" type="laser" />
+                        <action id="-12" name="Subtract from" sid="3926411938385183" type="comet2">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1472198206312884">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="5620928544114352" type="laser">
+                            <param id="0" name="Object">comet3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="2677549290957247" type="laser" />
+                        <action id="-12" name="Subtract from" sid="8888294774032384" type="comet3">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2342617338907384">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="4362514289877438" type="laser">
+                            <param id="0" name="Object">comet4</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="3632060563473383" type="laser" />
+                        <action id="-12" name="Subtract from" sid="8084748615644492" type="comet4">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5183257223415176">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="2669224486718665" type="laser">
+                            <param id="0" name="Object">comet5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="2621242014845267" type="laser" />
+                        <action id="-12" name="Subtract from" sid="9906360982240442" type="comet5">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="2235342927871702" title="object collision">
+            <sub-events>
+                <event-block sid="9989919084049142">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="6670861443732507" type="player">
+                            <param id="0" name="Object">enemy</param>
+                        </condition>
+                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="2283009894796345" type="player" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="4387700280429523" type="player">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="8801179937261024" type="enemy">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9959866075202306">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="2750465697144271" type="player">
+                            <param id="0" name="Object">comet1</param>
+                        </condition>
+                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="5258330442222246" type="player" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="8236007416076333" type="player">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="1298637550578068" type="comet1">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4569283000126992">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="3335332030931356" type="player">
+                            <param id="0" name="Object">comet2</param>
+                        </condition>
+                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="6837388107659475" type="player" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="6695160373872236" type="player">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="3904060374565962" type="comet2">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9974735514951623">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="9486662072884629" type="player">
+                            <param id="0" name="Object">comet3</param>
+                        </condition>
+                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="2134656951778015" type="player" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="7717466288515505" type="player">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="4605863491751214" type="comet3">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="227910315419229">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="8012469851467716" type="player">
+                            <param id="0" name="Object">comet4</param>
+                        </condition>
+                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="765487497984766" type="player" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="7005815150662176" type="player">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="6096420452100223" type="comet4">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3275413875905791">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="118070540590661" type="player">
+                            <param id="0" name="Object">comet5</param>
+                        </condition>
+                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="7723168995341465" type="player" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="9393200648791883" type="player">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="6692047132987564" type="comet5">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7362641033597149">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="2743265781983489" type="enemy">
+                            <param id="0" name="Object">comet1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="6016014297111314" type="enemy">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="3281492776327787" type="comet1">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9593689161972468">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="4793875280865037" type="enemy">
+                            <param id="0" name="Object">comet2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="5080623240417798" type="enemy">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="9408528958700417" type="comet2">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8856557996651442">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="4694095499747397" type="enemy">
+                            <param id="0" name="Object">comet3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="7307260920585746" type="enemy">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="1710231790337296" type="comet3">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2603338049227762">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="5654172106155123" type="enemy">
+                            <param id="0" name="Object">comet4</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="3009780296286636" type="enemy">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="2621803762056635" type="comet4">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8272568590962595">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="1512005606848539" type="enemy">
+                            <param id="0" name="Object">comet5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="3188413288026577" type="enemy">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="3722718720440646" type="comet5">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

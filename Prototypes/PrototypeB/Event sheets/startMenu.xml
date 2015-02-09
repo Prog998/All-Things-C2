@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>startMenu</name>
+    <events>
+        <event-block sid="2711629537619958">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="5402566556040662" type="System">
+                    <param id="0" name="Interval (seconds)">1.0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Flash" id="0" name="Flash" sid="9436958265070415" type="startInstructions">
+                    <param id="0" name="&apos;On&apos; time">0.5</param>
+                    <param id="1" name="&apos;Off&apos; time">0.5</param>
+                    <param id="2" name="Duration">1.0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block any="1" sid="2334897644747807">
+            <conditions>
+                <condition id="6" name="On button pressed" sid="7694699248273408" type="Gamepad">
+                    <param id="0" name="Gamepad">0</param>
+                    <param id="1" name="Button">9</param>
+                </condition>
+                <condition id="0" name="On key pressed" sid="2458446427554868" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-25" name="Go to layout (by name)" sid="7230222245490961" type="System">
+                    <param id="0" name="Layout">&quot;gameField&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5146459478732103">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="7151107675560772" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="1012328786488603" type="highScoreLabel">
+                    <param id="0" name="Text">highScore</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
