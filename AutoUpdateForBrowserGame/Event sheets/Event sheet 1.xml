@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="isLoadingComplete" sid="345862381510171" static="0" type="number">0</variable>
+        <event-block sid="9330891896413669">
+            <conditions>
+                <condition id="6" name="On update ready" sid="3994632862206016" type="Browser" />
+            </conditions>
+            <actions>
+                <action id="9" name="Reload" sid="7016184852810063" type="Browser" />
+            </actions>
+        </event-block>
+        <event-block sid="2070480505644484">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="5775467083119184" type="System" />
+                <condition id="5" inverted="1" name="Is downloading update" sid="9839295663176565" type="Browser" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="7857311833213059" type="System">
+                    <param id="0" name="Variable">isLoadingComplete</param>
+                    <param id="1" name="Value">loadingprogress</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7363506961403406">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="5941884004853014" type="System" />
+                <condition id="5" name="Is downloading update" sid="8772503056901754" type="Browser" />
+            </conditions>
+            <actions>
+                <action id="-7" name="Set size" sid="9532501867385247" type="loadingBar">
+                    <param id="0" name="Width">loadingprogress * 100</param>
+                    <param id="1" name="Height">50</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3980212380261439">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="7874848223842058" type="System">
+                    <param id="0" name="Variable">isLoadingComplete</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="4297523059284588" type="System">
+                    <param id="0" name="Seconds">1.0</param>
+                </action>
+                <action id="-25" name="Go to layout (by name)" sid="89764408901574" type="System">
+                    <param id="0" name="Layout">&quot;Start Screen&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
